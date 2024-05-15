@@ -19,14 +19,14 @@ header{
     align-items: center;
 }
 
-#logo {
+#imgLogo {
     width: 10%;
     height: 10%;
 }
 
-#logo img{
-    width: 400px;
-    height: 200px;
+.img{
+    margin-right: 40%;
+    cursor: pointer;
 }
 
 .navbar{
@@ -37,4 +37,27 @@ header{
     justify-content: space-around;
     list-style: none;
     font-family: "Assistant", sans-serif;
+    cursor: pointer;
+}
+
+li:hover{
+    transform: scale(1.01);
+    color: #9A7BAA;
+    font-weight: bold;
+}
+
+.login{
+    background-color: #9A7BAA;
+    color: #FFFFFF;
+    width: 100px;
+    margin-right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border-color: #9A7BAA;
+    border: 1px solid;
+    height: 25px;
+}
+
+.login:hover{
+    background-color: #69009F;
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="shortcut icon" type="imagex/png" href="imgs/icone-head.png">
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+    <div class="container">
+        <div class="conteudo">
+            <p id="cadastro_texto">Cadastre-se</p>
+            <div class="form">
+                <div class="form-group">
+                    <span>Digite seu nome</span>
+                    <input type="text" id="nomeInput" placeholder="Jesus te ama">
+                </div>
+                <div class="form-group">
+                    <span>Digite seu Email</span>
+                    <input type="text" id="emailInput" placeholder="vidaDeDevocao@gmail.com">
+                </div>
+                <div class="form-group">
+                    <span>Digite seu telefone</span>
+                    <input type="text" id="telefoneInput" placeholder="(11) 00000-0000" maxlength="12">
+                </div>
+                <div class="form-group">
+                    <span>Digite sua senha</span>
+                    <input name="txtSenha" id="txtSenha" type="password"
+                        placeholder="●●●●●●">
+                    <img src="imgs/olho-fechado.png" class="lnr lnr-eye" alt="">
+                </div>
+
+                <div class="form-group">
+                    <span>Digite sua senha</span>
+                    <input name="txtSenha_confirmation" id="txtSenha_confirmation" type="password"
+                        placeholder="●●●●●●">
+                    <img src="imgs/olho-fechado.png" class="lnr lnr-eye" alt="">
+                </div>
+                <div class="form-group">
+                    <span>Escolha uma foto</span>
+                    <input type="file" id="emailContatoInput" placeholder="vidaDeDevocao@gmail.com">
+                </div>
+                <button id="botaoCadastro" onclick="cadastrar()">Enviar</button>
+            </div>   
+        </div>
+
+        <div class="login">
+            <p id="login_texto">
+                Já tem uma conta? <br>
+                faça login
+            </p>
+            <img src="imgs/logo-branca.svg" id="logoLogin">
+            <button id="loginBotao"><a href="login.html">Login</a></button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="js/mostrarSenha.js"></script>

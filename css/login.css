@@ -110,6 +110,7 @@ body {
     margin-bottom: 5px;
     font-size: 14px;
     color: #333;
+    margin-top: 20px;
 }
 
 .form input[type="text"] {
@@ -122,7 +123,7 @@ body {
 }
 
 .form input[type="text"]:focus {
-    border-color: #9A7BAA;
+    border-color: #0068AE;
 }
 
 .form input[type="password"] {
@@ -135,7 +136,7 @@ body {
 }
 
 .form input[type="password"]:focus {
-    border-color: #9A7BAA;
+    border-color: #0068AE;
 }
 
 .form input[type="file"] {
@@ -170,7 +171,7 @@ body {
 }
 
 .form button:hover {
-    background-color: #9A7BAA;
+    background-color: #0068AE;
 }
 
 textarea{
@@ -199,7 +200,7 @@ textarea{
 .lnr-eye {
     position: absolute;
     right: 12px;
-    top: 35px;
+    top: 54px;
     width: 18px;
     cursor: pointer;
 }

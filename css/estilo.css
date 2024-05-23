@@ -18,6 +18,10 @@ AMARELO: #FFCC00
     margin: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Assistant", sans-serif;
     display: flex;
@@ -130,11 +134,9 @@ main {
 .rodape_conteudo {
     display: flex;
     justify-content: space-around;
-    width: 100%;
     align-items: center;
     padding: 50px 10px;
     background-color: #9A7BAA;
-    margin-top: 300px;
 }
 
 .colunas {
@@ -250,60 +252,255 @@ main {
     background-color: #4a006e8c;
 }
 
+#sobre_id {
+    padding: 120px;
+    background-color: #F0F0F0;
+    display: flex;
+    justify-content: center;
+}
+
 .conteudo_sobre {
-    display: flex;  
-    background-color: #9A7BAA;
-}
-
-.imagemSobre {
-    margin-right: 80px;
-}
-
-.imagemSobre img{
-    width: 750px;
-    height: 400px;
-    margin-top: 150px;
-}
-
-.texto {
-    text-align: center;
-    margin-top: 300px;
-    margin-right: 50;
-    width: 400px;
+    max-width: 800px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #sobre {
-    font-family: "Gloria Hallelujah", cursive;
     font-size: 24px;
-    font-weight: bold;
-    color: #F7DCDC;
-    margin: 0;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000000;
+    font-family: "Gloria Hallelujah", cursive;
+    color: #69009F;
     text-transform: uppercase;
-    font-weight: bold;
+    margin-left: 200px;
+}
+
+.imagemTexto {
+    display: flex;
+    align-items: center;
+}
+
+.imagemSobre img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #000000;
+    font-weight: 400;
 }
 
 #textoSobre {
-    display: block;
-    margin-top: 10px;
     font-size: 16px;
-    color: #FFFFFF;
-    font-weight: bolder;
+    line-height: 1.5;
+    color: #000000;
 }
 
-.conteudo_contato{
+#saiba_mais {
+    color: #69009F;
+    text-decoration: none;
+}
+
+
+.projeto {
+    padding-top: 120px;
+    width: 100vw;
+    align-items: center; 
+    background-color: #9A7BAA;   
+}
+
+.conteudo_projeto {
+    padding-top: 25px;
+    margin-top: 100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #9A7BAA;
 }
 
-.projeto{
-    height: 100vh;
-    width: 100vw;
-    background-color: #cc3e3e; 
+.texto_projeto {
+    font-size: 30px;
+    font-family: "Assistant", sans-serif;
+    color: #F0F0F0;
+    padding: 30px 200px;
+    text-align: center;
+    background-color: #9A7BAA;
 }
 
-.contato {
-    height: 100vh;
-    width: 100vw;
+.texto_projeto1 {
+    margin-top: 40px;
+    padding: 0px 80px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.projeto_secao {
+    display: flex;
+    flex-direction: column;
+}
+
+.solucao h3 {
+    padding: 50px;
+    flex-direction: column;
     background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(2, 0, 0, 0.377);
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 1.5px;
+    line-height: 25px;
+    color: #000000;
+    font-family: "Assistant", sans-serif;
+}
+
+.funcionamento h3 {
+    padding: 50px;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(2, 0, 0, 0.377);
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 1.5px;
+    line-height: 25px;
+    color: #000000;
+    font-family: "Assistant", sans-serif;
+}
+
+.titulo_secao h3 {
+    font-size: 25px;
+    padding: 15px 0px;
+    font-family: "Gloria Hallelujah", cursive;
+}
+
+.titulo_secao h6 {
+    font-size: 15px;
+    margin-top: -10px;
+}
+
+.beneficios {
+    padding: 15px 80px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    margin: auto;
+}
+
+.card {
+    width: 250px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+    margin-left: 15px;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #8141a1e5;
+    color: #F7DCDC; 
+    display: flex;
+    align-items: center;
+    border: 10px solid #8141a1e5;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bolder;
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    background-color: #FFFFFF;
+    color: #111111;
+    display: flex;
+    align-items: center;
+    border: 10px solid #FFFFFF;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 15px;
+    transform: rotateY(180deg);
+}
+
+.ultima_secao_projeto {
+    padding: 50px 180px 0px;
+}
+
+.ultima_secao_projeto h3 {
+    font-size: 20px;
+    line-height: 35px;
+    margin-bottom: 20px
+}
+
+#btn_projeto {
+    margin-top: 15px;
+    font-size: 15px;
+    width: 250px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    margin-top: 0px;
+    background-color: #69009F;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+#btn_projeto:hover {
+    color: white;
+    background: rgb(33, 0, 49);
+}
+
+#btn_projeto a {
+    text-decoration: none;
+    color: white;
+}
+
+#contato_id {
+    padding: 8% 10% 10% 0%;
+    background-color: #F0F0F0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#titulo_contato{
+    height: auto;
+    width: 100%;
     align-items: center;
     text-align: center;
     font-family: "Gloria Hallelujah", cursive;
@@ -311,30 +508,139 @@ main {
     font-weight: bold;
     color: #000000;
     text-transform: uppercase;
-    font-weight: bold;
+}
+
+.conteudo_contato {
+    max-width: 900px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form {
-    text-align: center;
-    padding: 40px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     max-width: 600px;
-    margin: 0 auto;
-    height: 30%;
+    margin: auto;
 }
 
-.form p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
+.form-group {
+    display: flex;
+    flex-direction: column;
 }
 
 .form span {
-    display: block;
-    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form input[type="text"] {
+    padding: 10px;
     font-size: 16px;
-    color: #666;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form input[type="text"]:focus {
+    border-color: #9A7BAA;
+}
+
+.form #mensagemContatoText {
+    padding: 20px;
+}
+
+.form button {
+    grid-column: span 2;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #69009F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form button:hover {
+    background-color: #9A7BAA;
+}
+
+textarea{
+    resize: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #FEFEFE;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888888;
+    width: 40%;
+    border-radius: 20px;
+    height: 30%;
+}
+
+.close {
+    color: #AAAAAA;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.conteudo-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+    color: #000000;
+}
+
+.conteudo-modal p {
+    font-weight: 600;
+    text-align: center;
+    color: #69009F;
+    text-transform: uppercase;
+}
+
+#botaoFinal {
+    grid-column: span 2;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #69009F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.conteudo-modal span{
+    font-size: 20px;
+    margin-top: 15px;
 }

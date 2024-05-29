@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" type="imagex/png" href="imgs/icone-head.png">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+            <p id="login_texto">
+                Não tem uma conta? <br>
+                cadastre-se já
+            </p>
+            <img src="imgs/logo-branca.svg" id="logoLogin">
+            <button id="loginBotao"><a href="cadastro.html">Cadastro</a></button>
+        </div>
+
+        <div class="conteudo">
+            <p id="cadastro_texto">Entre com a <br> sua conta</p>
+            <div class="form">
+                <div class="form-group">
+                    <span>Digite seu Email</span>
+                    <input type="text" id="emailInput" placeholder="vidaDeDevocao@gmail.com">
+                </div>
+                <div class="form-group">
+                    <span>Digite sua senha</span>
+                    <input name="txtSenha" id="txtSenha" type="password"
+                        placeholder="●●●●●●">
+                    <img src="imgs/olho-fechado.png" class="lnr lnr-eye" alt="">
+                </div>
+                <button id="botaoCadastro" onclick="entrar()">Enviar</button>
+            </div>   
+        </div>
+
+        
+    </div>
+</body>
+</html>
+
+<script src="js/mostrarSenha.js"></script>
+<script>
+    function entrar() {
+
+    var emailVar = emailInput.value;
+    var senhaVar = txtSenha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        finalizarAguardar();
+        return false;
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(function () {
+                    window.location = "./areaUsuario/dashboard.html";
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+</script>

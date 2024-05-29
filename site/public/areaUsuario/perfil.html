@@ -23,13 +23,87 @@
                 <p>Viva pelo o que é eterno!</p>
             </div>
             <div class="profile-icon">
-                <img src="https://thumbs.dreamstime.com/z/imagem-de-utilizador-vetorial-do-%C3%ADcone-perfil-avatar-predefinido-usu%C3%A1rio-vetor-padr%C3%A3o-179582665.jpg" alt="Profile">
+                <img src="imgsUsuarios/padraoUser.png" alt="Profile">
             </div>
         </div>
         <div class="content">
-            <h1>Welcome to the Dashboard</h1>
-            <p>This is the main content area.</p>
+            <div class="img-profile">
+                <div class="fotinho">
+                    <img src="../imgs/jesus-moça.jpg">
+                    <span id="atualizar-foto">Atualizar foto</span>
+                    <input type="file">
+                </div>
+            </div>
+            
+            <div class="formulario">
+                <form action="#" method="post">
+                    <input type="text" name="nome" placeholder="Nome">
+                    <input type="email" name="email" placeholder="E-mail">
+                    <input type="password" name="senha" placeholder="Senha">
+                    <input type="tel" name="telefone" placeholder="Telefone">
+                    <input type="tel" name="tipoRotina" placeholder="Tipo Rotina">
+                    <button type="button" id="btnAtualizar">Atualizar</button>
+                    <button type="button" id="btnDeletar">Deletar</button>
+                </form>
+            </div>
+            
+            <div id="modalAtualizar" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Atualizar Informações</h2>
+                    <div class="formulario">
+                        <form action="#" method="post">
+                            <input type="text" name="nome" placeholder="Nome">
+                            <input type="email" name="email" placeholder="E-mail">
+                            <input type="password" name="senha" placeholder="Senha">
+                            <input type="tel" name="telefone" placeholder="Telefone">
+                            <select>
+                                <option value="1">Rotina 1</option>
+                                <option value="2">Rotina 2</option>
+                                <option value="3">Rotina 3</option>
+                            </select>
+                            <button type="button" id="btnAtualizar">Atualizar</button>
+                            <button type="button" id="btnDeletar">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="modalDeletar" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Confirmar Exclusão</h2>
+                    <p>Tem certeza que deseja excluir?</p>
+                    <button type="button" id="btnConfirmarDeletar">Sim, excluir</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
 </html>
+
+<script>
+    // Abrir modal de atualizar
+    document.getElementById("btnAtualizar").addEventListener("click", function() {
+        document.getElementById("modalAtualizar").style.display = "block";
+    });
+
+    // Abrir modal de deletar
+    document.getElementById("btnDeletar").addEventListener("click", function() {
+        document.getElementById("modalDeletar").style.display = "block";
+    });
+
+    // Fechar modal ao clicar no botão fechar
+    document.querySelectorAll(".close").forEach(function(closeBtn) {
+        closeBtn.addEventListener("click", function() {
+            this.closest(".modal").style.display = "none";
+        });
+    });
+
+    // Fechar modal ao clicar fora dele
+    window.onclick = function(event) {
+        if (event.target.classList.contains("modal")) {
+            event.target.style.display = "none";
+        }
+    };
+</script>

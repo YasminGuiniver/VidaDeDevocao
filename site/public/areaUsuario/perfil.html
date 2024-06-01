@@ -37,11 +37,11 @@
             
             <div class="formulario">
                 <form action="#" method="post">
-                    <input type="text" name="nome" placeholder="Nome">
-                    <input type="email" name="email" placeholder="E-mail">
-                    <input type="password" name="senha" placeholder="Senha">
-                    <input type="tel" name="telefone" placeholder="Telefone">
-                    <input type="tel" name="tipoRotina" placeholder="Tipo Rotina">
+                    <input type="text" name="nome" value="Jesus" placeholder="Nome" readonly>
+                    <input type="email" name="email" value="Jesus" placeholder="E-mail" readonly>
+                    <input type="password" name="senha" value="Jesus" placeholder="Senha" readonly>
+                    <input type="tel" name="telefone" value="Jesus" placeholder="Telefone" readonly>
+                    <input type="tel" name="tipoRotina" value="Rotina 1" placeholder="Tipo Rotina" readonly>
                     <button type="button" id="btnAtualizar">Atualizar</button>
                     <button type="button" id="btnDeletar">Deletar</button>
                 </form>
@@ -58,12 +58,13 @@
                             <input type="password" name="senha" placeholder="Senha">
                             <input type="tel" name="telefone" placeholder="Telefone">
                             <select>
-                                <option value="1">Rotina 1</option>
-                                <option value="2">Rotina 2</option>
-                                <option value="3">Rotina 3</option>
+                                <option value="rotinaAtual" selected>Rotina Atual</option>
+                                <option value="1">Rotina 1 -- 1 hora 1 capitulo</option>
+                                <option value="2">Rotina 2 -- 2 horas 2 capitulos</option>
+                                <option value="3">Rotina 3 -- 3 horas ou mais 3 capitulos ou mais</option>
                             </select>
                             <button type="button" id="btnAtualizar">Atualizar</button>
-                            <button type="button" id="btnDeletar">Cancelar</button>
+                            <button type="button" id="btnCancelar">Cancelar</button>
                         </form>
                     </div>
                 </div>
@@ -74,7 +75,7 @@
                     <span class="close">&times;</span>
                     <h2>Confirmar Exclusão</h2>
                     <p>Tem certeza que deseja excluir?</p>
-                    <button type="button" id="btnConfirmarDeletar">Sim, excluir</button>
+                    <button class="botao-apagar" type="button" id="btnConfirmarDeletar">Sim, excluir</button>
                 </div>
             </div>
         </div>
@@ -93,12 +94,18 @@
         document.getElementById("modalDeletar").style.display = "block";
     });
 
+    document.getElementById("btnCancelar").addEventListener("click", function() {
+        document.getElementById("modalAtualizar").style.display = "none";
+    });
+
     // Fechar modal ao clicar no botão fechar
     document.querySelectorAll(".close").forEach(function(closeBtn) {
         closeBtn.addEventListener("click", function() {
             this.closest(".modal").style.display = "none";
         });
     });
+
+
 
     // Fechar modal ao clicar fora dele
     window.onclick = function(event) {

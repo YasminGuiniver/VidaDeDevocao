@@ -1,12 +1,26 @@
 function entrar() {
 
+    let modal = document.getElementById("myModal");
+    let btnFecharModal = document.getElementsByClassName("close")[0];
+    let btnFecharModalDentro = document.getElementById('botaoFinal');
+
     var emailVar = emailInput.value;
     var senhaVar = txtSenha.value;
 
     if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        finalizarAguardar();
+        modal.style.display = "block";
+        btnFecharModal.onclick = function () {
+            modal.style.display = "none";
+        }
+        btnFecharModalDentro.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
         return false;
     }
 
@@ -23,12 +37,7 @@ function entrar() {
             senhaServer: senhaVar
         })
     }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!");
-
-        setTimeout(function () {
-            window.location = "./areaUsuario/dashboard.html";
-        }, 1000); // apenas para exibir o loading
-
+        console.log("ESTOU NO THEN DO entrar()!")
 
         if (resposta.ok) {
             console.log(resposta);
@@ -40,7 +49,10 @@ function entrar() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
-                
+                setTimeout(function () {
+                    window.location = "./areaUsuario/dashboard.html";
+                }, 1000); // apenas para exibir o loading
+
             });
 
         } else {

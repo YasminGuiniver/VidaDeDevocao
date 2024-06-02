@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="shortcut icon" type="imagex/png" href="imgs/icone-head.png">
     <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
     <div class="container">
         <div class="login">
@@ -32,78 +34,31 @@
                 </div>
                 <div class="form-group">
                     <span>Digite sua senha</span>
-                    <input name="txtSenha" id="txtSenha" type="password"
-                        placeholder="●●●●●●">
+                    <input name="txtSenha" id="txtSenha" type="password" placeholder="●●●●●●">
                     <img src="imgs/olho-fechado.png" class="lnr lnr-eye" alt="">
                 </div>
                 <button id="botaoCadastro" onclick="entrar()">Enviar</button>
-            </div>   
+            </div>
         </div>
 
-        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="conteudo-modal">
+                    <p>ERRO</p>
+                    <span>Preencha todos os campos para proseguir...</span>
+                    <br>
+                    <button id="botaoFinal">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
+
 </html>
 
 <script src="js/mostrarSenha.js"></script>
-<script>
-    function entrar() {
-
-    var emailVar = emailInput.value;
-    var senhaVar = txtSenha.value;
-
-    if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        finalizarAguardar();
-        return false;
-    }
-
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
-
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
-
-                setTimeout(function () {
-                    window.location = "./areaUsuario/dashboard.html";
-                }, 1000); // apenas para exibir o loading
-
-            });
-
-        } else {
-
-            console.log("Houve um erro ao tentar realizar o login!");
-
-            resposta.text().then(texto => {
-                console.error(texto);
-                finalizarAguardar(texto);
-            });
-        }
-
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-
-    return false;
-}
-</script>
+<script src="js/login.js"></script>

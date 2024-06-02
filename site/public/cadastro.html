@@ -21,8 +21,8 @@
                     <input type="text" id="emailInput" placeholder="vidaDeDevocao@gmail.com">
                 </div>
                 <div class="form-group">
-                    <span>Digite seu telefone</span>
-                    <input type="text" id="telefoneInput" placeholder="(11) 00000-0000" maxlength="12">
+                    <span>Digite seu telefone celular</span>
+                    <input type="text" id="telefoneInput" placeholder="(11) 00000-0000" maxlength="11">
                 </div>
                 <div class="form-group">
                     <span>Digite sua senha</span>
@@ -42,6 +42,21 @@
                     <input type="file" id="fotoInput" placeholder="vidaDeDevocao@gmail.com">
                 </div>
                 <button id="botaoCadastro" onclick="cadastrar()">Enviar</button>
+
+                <div id="myModal" class="modal">
+                    <div class="modal-content" id="modalConteudo">
+                        <span class="close">&times;</span>
+                        <div class="conteudo_modal">
+                            <p id="paragrafo_modal">ERRO</p>
+                            <span id="span_modal">Preencha todos os campos para proseguir...</span>
+                            <br>
+                            <button id="botaoFinal">
+                                OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
             </div>   
         </div>
 
@@ -59,3 +74,4 @@
 
 <script src="js/mostrarSenha.js"></script>
 <script src="js/cadastro.js"></script>
+<script src="js/formataCampos.js"></script>

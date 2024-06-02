@@ -1,23 +1,61 @@
+function retirarFormatacao(numeroFormatado) {
+    return numeroFormatado.replace(/\D/g, '');
+}
+
 function cadastrar() {
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nomeInput.value;
     var emailVar = emailInput.value;
     var senhaVar = txtSenha.value;
+    var telefoneVar = retirarFormatacao(telefoneInput.value);
     var confirmacaoSenhaVar = txtSenha_confirmation.value;
 
+    let modal = document.getElementById("myModal");
+    let btnFecharModal = document.getElementsByClassName("close")[0];
+    let btnFecharModalDentro = document.getElementById('botaoFinal');
+    
 
     if (
         nomeVar == "" ||
         emailVar == "" ||
         senhaVar == "" ||
-        confirmacaoSenhaVar == ""
+        confirmacaoSenhaVar == "" ||
+        telefoneVar == ""
     ) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "(Mensagem de erro para todos os campos em branco)";
+        modal.style.display = "block";
+        btnFecharModal.onclick = function () {
+            modal.style.display = "none";
+        }
+        btnFecharModalDentro.onclick = function () {
+            modal.style.display = "none";
+        }
 
-        finalizarAguardar();
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        return false;
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+        span_modal.innerHTML = "As senhas não coincidem, por favor verifique e tente novamente"
+
+
+        modal.style.display = "block";
+        btnFecharModal.onclick = function () {
+            modal.style.display = "none";
+        }
+        btnFecharModalDentro.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
         return false;
     }
 
@@ -32,23 +70,25 @@ function cadastrar() {
             // Agora vá para o arquivo routes/usuario.js
             nomeServer: nomeVar,
             emailServer: emailVar,
-            senhaServer: senhaVar
+            senhaServer: senhaVar,
+            telefoneServer: telefoneVar
         }),
     })
         .then(function (resposta) {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML =
-                    "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                modalConteudo.innerHTML = `
+                        <div class="conteudo_modal">
+                            <p id="paragrafo_modal">Sucessos</p>
+                            <span id="span_modal">Cadastro realizado com sucesso, seja bem vindo! <br> 
+                            Redirecionando para a tela de login em alguns segundos...</span>
+                        </div>`;
+                modal.style.display = "block";
 
                 setTimeout(() => {
-                    window.location = "index.html";
-                }, "2000");
-
-                limparFormulario();
+                    window.location = "login.html";
+                }, " 5000");
 
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";

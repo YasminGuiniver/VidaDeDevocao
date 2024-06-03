@@ -45,13 +45,14 @@ function entrar() {
             resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
+                sessionStorage.IMAGEM_USUARIO = json.imagem;
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
                 setTimeout(function () {
                     window.location = "./areaUsuario/dashboard.html";
-                }, 1000); // apenas para exibir o loading
+                }, 1000);
 
             });
 
@@ -59,10 +60,20 @@ function entrar() {
 
             console.log("Houve um erro ao tentar realizar o login!");
 
-            resposta.text().then(texto => {
-                console.error(texto);
-                finalizarAguardar(texto);
-            });
+            modal.style.display = "block";
+            btnFecharModal.onclick = function () {
+                modal.style.display = "none";
+            }
+            btnFecharModalDentro.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            return false;
         }
 
     }).catch(function (erro) {

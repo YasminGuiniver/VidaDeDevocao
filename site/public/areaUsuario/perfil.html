@@ -13,7 +13,7 @@
         <ul>
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="perfil.html">Perfil</a></li>
-            <li><a href="jogos.html">Jogos</a></li>
+            <li><a href="jogos.html">Jogo</a></li>
             <li><a href="../login.html">Sair</a></li>
         </ul>
     </div>
@@ -23,15 +23,14 @@
                 <p>Viva pelo o que é eterno!</p>
             </div>
             <div class="profile-icon">
-                <img src="imgsUsuarios/padraoUser.png" alt="Profile">
+                <p>Olá, <span id="b_usuario">usuário</span>!</p>
+                <img id="img_perfil" alt="Profile">
             </div>
         </div>
         <div class="content">
             <div class="img-profile">
                 <div class="fotinho">
                     <img src="../imgs/jesus-moça.jpg">
-                    <span id="atualizar-foto">Atualizar foto</span>
-                    <input type="file">
                 </div>
             </div>
             
@@ -53,6 +52,7 @@
                     <h2>Atualizar Informações</h2>
                     <div class="formulario">
                         <form action="#" method="post">
+                            <input type="file">
                             <input type="text" name="nome" placeholder="Nome">
                             <input type="email" name="email" placeholder="E-mail">
                             <input type="password" name="senha" placeholder="Senha">
@@ -83,34 +83,4 @@
 </body>
 </html>
 
-<script>
-    // Abrir modal de atualizar
-    document.getElementById("btnAtualizar").addEventListener("click", function() {
-        document.getElementById("modalAtualizar").style.display = "block";
-    });
-
-    // Abrir modal de deletar
-    document.getElementById("btnDeletar").addEventListener("click", function() {
-        document.getElementById("modalDeletar").style.display = "block";
-    });
-
-    document.getElementById("btnCancelar").addEventListener("click", function() {
-        document.getElementById("modalAtualizar").style.display = "none";
-    });
-
-    // Fechar modal ao clicar no botão fechar
-    document.querySelectorAll(".close").forEach(function(closeBtn) {
-        closeBtn.addEventListener("click", function() {
-            this.closest(".modal").style.display = "none";
-        });
-    });
-
-
-
-    // Fechar modal ao clicar fora dele
-    window.onclick = function(event) {
-        if (event.target.classList.contains("modal")) {
-            event.target.style.display = "none";
-        }
-    };
-</script>
+<script src="js/perfil.js"></script>

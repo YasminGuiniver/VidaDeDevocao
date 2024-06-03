@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/png" href="../imgs/icone-head.png">
     <link rel="stylesheet" href="css/jogos.css">
-    <title>Jogos</title>
+    <title>Jogo</title>
 </head>
 <body>
     <div class="sidebar">
@@ -13,7 +13,7 @@
         <ul>
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="perfil.html">Perfil</a></li>
-            <li><a href="jogos.html">Jogos</a></li>
+            <li><a href="jogos.html">Jogo</a></li>
             <li><a href="../login.html">Sair</a></li>
         </ul>
     </div>
@@ -23,7 +23,8 @@
                 <p>Viva pelo o que é eterno!</p>
             </div>
             <div class="profile-icon">
-                <img src="imgsUsuarios/padraoUser.png" alt="Profile">
+                <p>Olá, <span id="b_usuario">usuário</span>!</p>
+                <img id="img_perfil" alt="Profile">
             </div>
         </div>
         <div class="content">
@@ -41,15 +42,20 @@
                 <div class="container">
                     <div id="div_game">
                         <br>
+                        <div style="display: none" id="div_verifiedAnswer">
+                            <h3>Resposta Correta</h3>
+                        </div>
                         <div id="div_information">
                             <h2>Intruções do Jogo</h2><br><br>
                             <p>
                                 Clique em <b>"Começar o Jogo"</b> para iniciar uma partida <br>
                                 Perguntas serão exibidas na parte inferior do quadro 
                                 Insira a sua resposta na caixa de texto e clique em "Verificar" para conferir a sua
-                                resposta. - cada partida vale 1 ponto
+                                resposta
                                 <br>
-                                <b>A partida acaba quando as 16 questões forem respondidas corretamente</b>
+                                <b>A partida acaba quando as 10 questões forem respondidas corretamente - Cada partida vale 10 pontos</b>
+                                <br>
+                                <b>Clicar em "encerrar a partida" faz você perder seus pontos</b>
                                 <br><br>
                                 <br><br>
                             </p>
@@ -59,17 +65,24 @@
                         <br>
                         <div style="display: none" id="div_questions">
                             <center>
-                                <span id="span_questionText">Vamos encontrar as esferas do dragao</span>
+                                <span id="span_questionText">Vamos aprender sobre a biblia</span>
                                 <input type="text" id="input_answer" placeholder="Sua Reposta"><br>
                                 <button id="button_verify" onclick="verify()" class="button">Verificar</button>
                             </center>
                         </div>
                     </div>
-                    <div style="display: none" id="div_verifiedAnswer">
-                        <h3>Resposta Correta</h3>
-                    </div>
                 </div>
             </article>
+        </div>
+    </div>
+
+    <div id="modalVazio" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>ERRO!</h2>
+            <div class="formulario">
+               <p>Por favor insira alguma resposta</p>
+            </div>
         </div>
     </div>
 </body>

@@ -11,10 +11,15 @@ function cadastrar() {
     var telefoneVar = retirarFormatacao(telefoneInput.value);
     var confirmacaoSenhaVar = txtSenha_confirmation.value;
 
+    var imagemUsuario = foto.files[0];
+
     let modal = document.getElementById("myModal");
     let btnFecharModal = document.getElementsByClassName("close")[0];
     let btnFecharModalDentro = document.getElementById('botaoFinal');
     
+    if(imagemUsuario == undefined) {
+        imagemUsuario = "padraoUser.png"
+    }
 
     if (
         nomeVar == "" ||
@@ -71,7 +76,8 @@ function cadastrar() {
             nomeServer: nomeVar,
             emailServer: emailVar,
             senhaServer: senhaVar,
-            telefoneServer: telefoneVar
+            telefoneServer: telefoneVar,
+            imagemServer: imagemUsuario
         }),
     })
         .then(function (resposta) {

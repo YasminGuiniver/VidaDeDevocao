@@ -6,6 +6,14 @@ function listarVersiculos(req, res) {
         })
 }
 
+function listarQuantidadePontos(req, res) {
+    var idUsuario = req.params.id;
+    dashboardModel.listarQuantidadePontos(idUsuario).then(function (resultado) {
+        res.status(200).json(resultado);
+    })
+}
+
 module.exports = {
-    listarVersiculos
+    listarVersiculos,
+    listarQuantidadePontos
 }

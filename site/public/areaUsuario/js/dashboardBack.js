@@ -1,4 +1,5 @@
 b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+id = sessionStorage.ID_USUARIO;
 
 var imagemUser = sessionStorage.IMAGEM_USUARIO;
 
@@ -26,6 +27,16 @@ fetch("/areaUsuario/dashboard/listarVersiculos", {
     console.log(`#ERRO: ${resposta}`);
 });
 
+fetch(`/areaUsuario/dashboard/listarQuantidadePontos/${id}`, {
+    method: "GET",
+})
+.then(function (resposta) {
+    resposta.json().then((pontos) => {
+        quantidade_pontos.innerHTML = pontos[0].pontosTotais;
+    })
+}).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+});
     
 
 

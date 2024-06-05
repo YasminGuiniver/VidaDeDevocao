@@ -11,4 +11,8 @@ router.get("/listarQuantidadePontos/:id", function (req, res) {
     dashboard.listarQuantidadePontos(req, res);
 });
 
+router.get("/momentoCadastro/:id", function(req, res) {
+    dashboard.momentoUsuarioCadastrado(req, res);
+})
+
 module.exports = router;

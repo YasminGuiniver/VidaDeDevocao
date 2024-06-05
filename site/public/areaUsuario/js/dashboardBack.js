@@ -37,3 +37,36 @@ fetch(`/areaUsuario/dashboard/listarQuantidadePontos/${id}`, {
 }).catch(function (resposta) {
     console.log(`#ERRO: ${resposta}`);
 });
+
+function calcularMinutosLogados(momentoBanco) {
+    const agora = new Date();
+    const diferencaMilissegundos = agora - momentoBanco;
+    const diferencaMinutos = Math.floor(diferencaMilissegundos / (1000 * 60));
+
+    return diferencaMinutos;
+}
+
+fetch(`/areaUsuario/dashboard/momentoCadastro/${id}`, {
+    method: "GET",
+})
+.then(function (resposta) {
+    return resposta.json();
+})
+.then(function (data) {
+    if (data.length > 0 && data[0].momento) {
+        const momentoBanco = new Date(data[0].momento);
+        function atualizarTempoLogado() {
+            const minutosLogados = calcularMinutosLogados(momentoBanco);
+            tempo_total.innerHTML = `${minutosLogados} mins`;
+        }
+
+        setInterval(atualizarTempoLogado, 60000);
+        atualizarTempoLogado();
+    } else {
+        console.log("Dados inválidos recebidos");
+    }
+})
+.catch(function (erro) {
+    console.log(`#ERRO: ${erro}`);
+});
+

@@ -13,7 +13,15 @@ function listarQuantidadePontos(req, res) {
     })
 }
 
+function momentoUsuarioCadastrado(req, res) {
+    var idUsuario = req.params.id;
+    dashboardModel.momentoUsuarioCadastrado(idUsuario).then(function (resultado) {
+        res.status(200).json(resultado);
+    })
+}
+
 module.exports = {
     listarVersiculos,
-    listarQuantidadePontos
+    listarQuantidadePontos,
+    momentoUsuarioCadastrado
 }

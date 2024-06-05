@@ -9,7 +9,7 @@ if (imagemUser) {
     document.getElementById('img_perfil').src = `imgsUsuarios/padraoUser.png`;
 }
 
-var special_words = ['Adão', 'Maria', 'Arão', 'Rebeca', 'Casamento', 'Sansão', 'Herodes', 'Betel', 'Benjamin', 'Beatitude'];
+var special_words = ['ADÃO', 'MARIA', 'ARÃO', 'REBECA', 'CASAMENTO', 'SANSÃO', 'HERODES', 'BETEL', 'BENJAMIN', 'BEATITUDE'];
 
 var questions_list = [
     'Nome do primeiro homem criado por Deus? - ',
@@ -40,7 +40,6 @@ var word = {
             for (i in word.word1.letter) { // Itera sobre cada letra da palavra "Adão".
                 var findCell = document.querySelector(`#cell_${word.word1.position[i]}`); // Encontra a célula da posição correspondente no array `position`.
                 findCell.innerHTML = word.word1.letter[i]; // Insere a letra na célula encontrada.
-                console.log(word.word1.letter[i]); // Exibe a letra no console para fins de debug.
             }
             cell_2.innerHTML = '<span style="color: #39FF14; font-size:10px">1</span>A'; // Adiciona o número da pergunta e a letra "A" na célula de posição 2.
         }
@@ -53,7 +52,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word2.position[i]}`);
 
                 findCell.innerHTML = word.word2.letter[i];
-                console.log(word.word2.letter[i]);
+                
             }
             cell_1.innerHTML = '<span style="color: red; font-size:10px">2</span>M';
 
@@ -67,7 +66,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word3.position[i]}`);
 
                 findCell.innerHTML = word.word3.letter[i];
-                console.log(word.word3.letter[i]);
+                
             }
             cell_5.innerHTML = '<span style="color: red; font-size:10px; text-tranform: uppercase">3</span>A';
         }
@@ -80,7 +79,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word4.position[i]}`);
 
                 findCell.innerHTML = word.word4.letter[i];
-                console.log(word.word4.letter[i]);
+                
             }
             cell_25.innerHTML = '<span style="color: red; font-size:10px">4</span>R';
         }
@@ -93,7 +92,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word5.position[i]}`);
 
                 findCell.innerHTML = word.word5.letter[i];
-                console.log(word.word5.letter[i]);
+                
             }
             cell_27.innerHTML = '<span style="color: red; font-size:10px">5</span>B';
         }
@@ -106,7 +105,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word6.position[i]}`);
 
                 findCell.innerHTML = word.word6.letter[i];
-                console.log(word.word6.letter[i]);
+                
             }
             cell_69.innerHTML = '<span style="color: red; font-size:10px">6</span>S';
         }
@@ -119,7 +118,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word7.position[i]}`);
 
                 findCell.innerHTML = word.word7.letter[i];
-                console.log(word.word7.letter[i]);
+                
             }
             cell_14.innerHTML = '<span style="color: red; font-size:10px">7</span>H';
         }
@@ -132,7 +131,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word8.position[i]}`);
 
                 findCell.innerHTML = word.word8.letter[i];
-                console.log(word.word8.letter[i]);
+                
             }
             cell_33.innerHTML = '<span style="color: red; font-size:10px">8</span>B';
         }
@@ -145,7 +144,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word9.position[i]}`);
 
                 findCell.innerHTML = word.word9.letter[i];
-                console.log(word.word9.letter[i]);
+                
             }
             cell_27.innerHTML = '<span style="color: red; font-size:10px">9</span>B';
         }
@@ -158,7 +157,7 @@ var word = {
                 var findCell = document.querySelector(`#cell_${word.word10.position[i]}`);
 
                 findCell.innerHTML = word.word10.letter[i];
-                console.log(word.word10.letter[i]);
+                ;
             }
             cell_16.innerHTML = '<span style="color: red; font-size:10px">10</span>B';
         }
@@ -185,50 +184,63 @@ function destroyGrid() {
     bt_destroyGame.style.display = 'none'; // Oculta o botão para destruir o jogo.
     div_questions.style.display = 'none'; // Oculta a div de perguntas.
     document.querySelector('#div_canvasCruzada').innerHTML = ''; // Limpa o conteúdo da grade do jogo.
-    desistir(); // Chama a função para exibir a pontuação final.
+    desistir(); // Chama a função para exibir mensagem de desistencia.
+}
+
+const pontos = {
+    quantidadePontos: [],
+    adicionaPontos: function () {
+        this.quantidadePontos.push('1');
+    },
 }
 
 function gameSequence() {
     span_questionText.innerHTML = `<b>${cont_correctAnswer + 1}.</b> ${questions_list[cont_correctAnswer]}`; // Exibe a próxima pergunta na sequência.
+
+        if(cont_correctAnswer == 11) {
+            console.log("parei aqui");
+        }
+
+        if (cont_correctAnswer == 1) {
+            word.word1.write(); // Escreve a palavra 1 na grade se a resposta correta é a primeira.
+        }
+        else if (cont_correctAnswer == 2) {
+            word.word2.write();
+        }
+        else if (cont_correctAnswer == 3) {
+            word.word3.write();
+        }
+        else if (cont_correctAnswer == 4) {
+            word.word4.write();
+        }
+        else if (cont_correctAnswer == 5) {
+            word.word5.write();
+        }
+        else if (cont_correctAnswer == 6) {
+            word.word6.write();
+        }
+        else if (cont_correctAnswer == 7) {
+            word.word7.write();
+        }
+        else if (cont_correctAnswer == 8) {
+            word.word8.write();
+        }
+        else if (cont_correctAnswer == 9) {
+            word.word9.write(); 
+        }
+        else if (cont_correctAnswer == 10) {
+            word.word10.write();
     
-    if (cont_correctAnswer == 1) {
-        word.word1.write(); // Escreve a palavra 1 na grade se a resposta correta é a primeira.
-    }
-    else if (cont_correctAnswer == 2) {
-        word.word2.write(); // Escreve a palavra 2 na grade se a resposta correta é a segunda.
-    }
-    else if (cont_correctAnswer == 3) {
-        word.word3.write(); // Escreve a palavra 3 na grade se a resposta correta é a terceira.
-    }
-    else if (cont_correctAnswer == 4) {
-        word.word4.write(); // Escreve a palavra 4 na grade se a resposta correta é a quarta.
-    }
-    else if (cont_correctAnswer == 5) {
-        word.word5.write(); // Escreve a palavra 5 na grade se a resposta correta é a quinta.
-    }
-    else if (cont_correctAnswer == 6) {
-        word.word6.write(); // Escreve a palavra 6 na grade se a resposta correta é a sexta.
-    }
-    else if (cont_correctAnswer == 7) {
-        word.word7.write(); // Escreve a palavra 7 na grade se a resposta correta é a sétima.
-    }
-    else if (cont_correctAnswer == 8) {
-        word.word8.write(); // Escreve a palavra 8 na grade se a resposta correta é a oitava.
-    }
-    else if (cont_correctAnswer == 9) {
-        word.word9.write(); // Escreve a palavra 9 na grade se a resposta correta é a nona.
-    }
-    else if (cont_correctAnswer == 10) {
-        word.word10.write(); // Escreve a palavra 10 na grade se a resposta correta é a décima.
-        setTimeout(function () {
-            pontuation();
-        }, 1000);
-    }
+            //Chama a função que cadastra a pontuação no banco e apresenta mensagem final
+            setTimeout(function () {
+                apresentarFim();
+            }, 1000);
+        }
 }
 
 
-function pontuation() {
-
+function apresentarFim() {
+    cadastrarPontos(); //chama a função que vai cadastrar os pontos no banco
     bt_start.style.display = 'block'; // Exibe o botão de iniciar.
     bt_destroyGame.style.display = 'none'; // Oculta o botão para destruir o jogo.
     div_questions.style.display = 'none'; // Oculta a div de perguntas.
@@ -238,6 +250,7 @@ function pontuation() {
 }
 
 function desistir () {
+    pontos.quantidadePontos.length = 0;
     div_information.style.display = 'block'; // Exibe a div de informações.
     div_information.innerHTML = '<h1 style="text-align: center;">Aaaah!!</h1><br><br><p style="text-align: center;">Você desistiu do jogo 🥹</p><br><br>'; // Exibe a mensagem de desistencia.
 }
@@ -272,8 +285,12 @@ function paintCells() {
     }
 }
 
+
 function verify() {
+    var input_answer = document.getElementById('input_answer');
     var answer = input_answer.value; // Obtém o valor da resposta do usuário.
+
+    answer = answer.toUpperCase(); // Converte para maiúsculas
 
     if (answer != '') { // Verifica se a resposta não está vazia.
         if (answer == special_words[cont_correctAnswer]) { // Verifica se a resposta está correta.
@@ -281,6 +298,7 @@ function verify() {
             div_verifiedAnswer.classList.add('correctAnswer'); // Adiciona a classe de resposta correta.
             div_verifiedAnswer.innerHTML = '<br>Resposta Correta!'; // Exibe a mensagem de resposta correta.
             cont_correctAnswer++; // Incrementa o contador de respostas corretas.
+            pontos.adicionaPontos();
         } else { // Se a resposta estiver incorreta.
             div_verifiedAnswer.classList.add('wrongAnswer'); // Adiciona a classe de resposta incorreta.
             div_verifiedAnswer.innerHTML = '<br>Resposta Incorreta, tente novamente'; // Exibe a mensagem de resposta incorreta.
@@ -299,8 +317,38 @@ function verify() {
         let modal = document.getElementById('modalVazio');
 
         modal.style.display = "block";
-        setInterval(function () {
+        setTimeout(function () {
             modal.style.display = "none";
         }, 2000)
     }
+}
+
+
+function cadastrarPontos () {
+    var id = Number(sessionStorage.ID_USUARIO);
+    var pontosTotaisVar = pontos.quantidadePontos.length;
+
+    fetch(`/areaUsuario/cadastroPontuacao`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idServer: id, 
+            pontosServer: pontosTotaisVar
+        })
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+            if (resposta.ok) {
+                console.log("cadastrei")
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro de pontos!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false;
 }

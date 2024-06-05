@@ -49,6 +49,8 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
+                
+                verificarPrimeiroLogin();
 
                 setTimeout(function () {
                     window.location = "./areaUsuario/dashboard.html";
@@ -81,4 +83,14 @@ function entrar() {
     })
 
     return false;
+}
+
+function verificarPrimeiroLogin() {
+    if (!localStorage.getItem('primeiro_login')) {
+        console.log("É a primeira vez que está fazendo login!");
+        localStorage.setItem('primeiro_login', 'feito');
+
+    } else {
+        console.log("Não é a primeira vez que está fazendo login.");
+    }
 }

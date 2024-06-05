@@ -3,8 +3,8 @@ var router = express.Router();
 
 var jogoController = require('../controllers/jogoController');
 
-router.post("/pontuacao", function (req, res) {
-    jogoController.cadastrar(req, res);
+router.post("/cadastroPontuacao", function (req, res) {
+    jogoController.cadastrarPontuacao(req, res);
 });
 
 module.exports = router;

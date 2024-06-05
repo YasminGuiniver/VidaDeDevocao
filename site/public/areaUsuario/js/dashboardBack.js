@@ -37,9 +37,3 @@ fetch(`/areaUsuario/dashboard/listarQuantidadePontos/${id}`, {
 }).catch(function (resposta) {
     console.log(`#ERRO: ${resposta}`);
 });
-    
-
-
-
-
-

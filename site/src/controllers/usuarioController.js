@@ -2,11 +2,11 @@ var usuarioModel = require("../models/usuarioModel");
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var telefone = req.body.telefoneServer;
-    var imagem = req.body.imagemServer;
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    var telefone = req.body.telefone;
+    var imagem = req.file ? req.file.filename : 'padraoUser.png';
 
     // Faça as validações dos valores
     if (nome == undefined) {

@@ -10,15 +10,14 @@ function cadastrar() {
     var senhaVar = txtSenha.value;
     var telefoneVar = retirarFormatacao(telefoneInput.value);
     var confirmacaoSenhaVar = txtSenha_confirmation.value;
-
-    var imagemUsuario = foto.files[0];
+    var imagemVar = fotoInput.files[0];
 
     let modal = document.getElementById("myModal");
     let btnFecharModal = document.getElementsByClassName("close")[0];
     let btnFecharModalDentro = document.getElementById('botaoFinal');
     
-    if(imagemUsuario == undefined) {
-        imagemUsuario = "padraoUser.png"
+    if(imagemVar == undefined) {
+        imagemVar = "padraoUser.png"
     }
 
     if (
@@ -64,21 +63,16 @@ function cadastrar() {
         return false;
     }
 
-    // Enviando o valor da nova input
+    const formData = new FormData();
+    formData.append('nome', nomeVar);
+    formData.append('email', emailVar);
+    formData.append('senha', senhaVar);
+    formData.append('telefone', telefoneVar);
+    formData.append('imagem', imagemVar);
+
     fetch("/usuarios/cadastrar", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar,
-            telefoneServer: telefoneVar,
-            imagemServer: imagemUsuario
-        }),
+        body: formData
     })
         .then(function (resposta) {
             console.log("resposta: ", resposta);

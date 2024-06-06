@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="imagex/png" href="../imgs/icone-head.png">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js'></script>
+
     <title>Dashboard</title>
 </head>
 <body>
@@ -45,12 +49,28 @@
                 <p id="referencia_versiculo"></p>
             </div>
             <div class="retangulo">
-                <h4>Qtd tempo</h4>
-                <p>24 min</p>
+                <h4>Meu devocional</h4>
+                <div class="form_devocional">
+                    <span>Selecione apenas os dias que você fez devocional nessa semana</span>
+                    <input type="checkbox" id="domingo" value="1">
+                    <label for="domingo">Domingo</label>
+                    <input type="checkbox" id="segunda" value="2">
+                    <label for="segunda">Segunda-feira</label>
+                    <input type="checkbox" id="terca" value="3">
+                    <label for="terca">Terça-feira</label>
+                    <input type="checkbox" id="quarta" value="4">
+                    <label for="quarta">Quarta-feira</label>
+                    <input type="checkbox" id="quinta" value="5">
+                    <label for="quinta">Quinta-feira</label>
+                    <input type="checkbox" id="sexta" value="6">
+                    <label for="sexta">Sexta-feira</label>
+                    <input type="checkbox" id="sabado" value="7">
+                    <label for="sabado">Sábado</label>
+                </div>
             </div>
+            
             <div class="quadrado-restante">
-                <h4>AAAAAAAAAA</h4>
-                <p>AAAAAAAAA</p>
+                <p>AAAAAAAAAA</p>
             </div>
         </div>
     </div>

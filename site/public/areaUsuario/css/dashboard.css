@@ -120,6 +120,7 @@ body {
     height: auto;
     background-color: #c0c0c0;
     text-align: center;
+    border-radius: 10px;
 }
 
 
@@ -215,4 +216,37 @@ body {
     color: red;
     font-size: 14px;
     margin-top: 10px;
+}
+
+.retangulo {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 8px;
+    width: 280px;
+    margin: 0 auto;
+}
+
+.form_devocional input[type="checkbox"] {
+    display: none; /* Esconde o input padrão */
+}
+
+.form_devocional label {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+.form_devocional input[type="checkbox"]:checked + label {
+    background-color: #ffcc00; /* Muda a cor do label quando o input é checado */
+}
+
+.form_devocional span {
+    display: block;
+    font-size: 12px;
+    color: #333; /* Cor do texto */
+    margin-bottom: 10px; /* Espaçamento inferior */
 }

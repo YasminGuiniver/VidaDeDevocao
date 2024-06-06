@@ -9,6 +9,8 @@ if (imagemUser) {
     document.getElementById('img_perfil').src = `imgsUsuarios/padraoUser.png`;
 }
 
+const momentoBanco = "";
+
 fetch("/areaUsuario/dashboard/listarVersiculos", {
     method: "GET",
 })
@@ -46,27 +48,40 @@ function calcularMinutosLogados(momentoBanco) {
     return diferencaMinutos;
 }
 
-fetch(`/areaUsuario/dashboard/momentoCadastro/${id}`, {
-    method: "GET",
-})
-.then(function (resposta) {
-    return resposta.json();
-})
-.then(function (data) {
-    if (data.length > 0 && data[0].momento) {
-        const momentoBanco = new Date(data[0].momento);
-        function atualizarTempoLogado() {
-            const minutosLogados = calcularMinutosLogados(momentoBanco);
-            tempo_total.innerHTML = `${minutosLogados} mins`;
+function pegarMomentoCadastroBanco () {
+    fetch(`/areaUsuario/dashboard/momentoCadastro/${id}`, {
+        method: "GET",
+    })
+    .then(function (resposta) {
+        return resposta.json();
+    })
+    .then(function (data) {
+        if (data.length > 0 && data[0].momento) {
+            const momentoBanco = new Date(data[0].momento);
+
+            function atualizarTempoLogado() {
+                const minutosLogados = calcularMinutosLogados(momentoBanco);
+                tempo_total.innerHTML = `${minutosLogados} mins`;
+            }
+            
+
+            setInterval(atualizarTempoLogado, 60000);
+            atualizarTempoLogado();
+            // Formatar a data para exibir em português
+            const opcoes = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formatoData = new Intl.DateTimeFormat('pt-BR', opcoes);
+            const dataFormatada = formatoData.format(momentoBanco);
+
+            console.log(dataFormatada); // Exibe a data formatada em português
+            
+            
+        } else {
+            console.log("Dados inválidos recebidos");
         }
+    })
+    .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+    });
+}
 
-        setInterval(atualizarTempoLogado, 60000);
-        atualizarTempoLogado();
-    } else {
-        console.log("Dados inválidos recebidos");
-    }
-})
-.catch(function (erro) {
-    console.log(`#ERRO: ${erro}`);
-});
-
+pegarMomentoCadastroBanco();

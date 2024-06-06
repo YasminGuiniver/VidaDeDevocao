@@ -19,6 +19,7 @@ fetch("/areaUsuario/dashboard/listarVersiculos", {
         const showRandomVersiculo = () => {
             const randomIndex = Math.floor(Math.random() * versiculos.length);
             referencia_versiculo.innerHTML = versiculos[randomIndex].Referencia;
+            listarVersiculoCompleto(versiculos[randomIndex].id)
         };
 
         showRandomVersiculo();
@@ -28,6 +29,22 @@ fetch("/areaUsuario/dashboard/listarVersiculos", {
 .catch(function (resposta) {
     console.log(`#ERRO: ${resposta}`);
 });
+
+
+function listarVersiculoCompleto (idVersiculo) {
+    console.log("versiculo",idVersiculo);
+    fetch(`/areaUsuario/dashboard/mostrarVersiculoCompleto/${idVersiculo}`, {
+        method: "GET",
+    })
+    .then(function (resposta) {
+        resposta.json().then((versiculo) => {
+            console.log(versiculo[0].Referencia);
+        });
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
 
 fetch(`/areaUsuario/dashboard/listarQuantidadePontos/${id}`, {
     method: "GET",
@@ -67,14 +84,6 @@ function pegarMomentoCadastroBanco () {
 
             setInterval(atualizarTempoLogado, 60000);
             atualizarTempoLogado();
-            // Formatar a data para exibir em português
-            const opcoes = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const formatoData = new Intl.DateTimeFormat('pt-BR', opcoes);
-            const dataFormatada = formatoData.format(momentoBanco);
-
-            console.log(dataFormatada); // Exibe a data formatada em português
-            
-            
         } else {
             console.log("Dados inválidos recebidos");
         }

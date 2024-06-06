@@ -13,6 +13,10 @@ router.get("/listarQuantidadePontos/:id", function (req, res) {
 
 router.get("/momentoCadastro/:id", function(req, res) {
     dashboard.momentoUsuarioCadastrado(req, res);
+});
+
+router.get("/mostrarVersiculoCompleto/:id", function(req, res) {
+    dashboard.mostrarVersiculoCompleto(req, res);
 })
 
 module.exports = router;

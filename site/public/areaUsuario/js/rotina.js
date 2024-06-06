@@ -100,3 +100,29 @@ function cadastroRotina () {
 function fechar() {
     modal.style.display = "none"
 }
+
+function visuzalizarRotina() {
+    modal.style.display = 'block';
+    conteudoInicio.style.display = 'none';
+    formulario.style.display = 'none';
+    parteFinal.style.display = 'block';
+    
+    fetch(`/areaUsuario/rotina/listarRotina/${id}`, {
+        method: "GET",
+    })
+    .then(function (resposta) {
+        return resposta.json().then(rotina => {
+            console.log("aqui estou, sendo quem sou",rotina[0].idRotina);
+    
+            span_numero.innerHTML = rotina[0].idRotina;
+    
+            span_modal.innerHTML = `Quantidade de horas: ${rotina[0].qdtHoras}hrs <br>
+            Quantidade de capitulos: ${rotina[0].qdtCapitulos}  <br>
+            Tempo para oração: ${rotina[0].qtdTempoOracao}mins <br>
+            Tempo para louvor: ${rotina[0].qtdTempoOracao}mins`
+        });
+    })
+    .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+    });
+}

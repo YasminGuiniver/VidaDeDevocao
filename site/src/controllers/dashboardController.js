@@ -20,8 +20,16 @@ function momentoUsuarioCadastrado(req, res) {
     })
 }
 
+function mostrarVersiculoCompleto(req, res) {
+    var idVersiculo = req.params.id;
+    dashboardModel.mostrarVersiculoCompleto(idVersiculo).then(function (resultado) {
+        res.status(200).json(resultado);
+    })
+}
+
 module.exports = {
     listarVersiculos,
     listarQuantidadePontos,
-    momentoUsuarioCadastrado
+    momentoUsuarioCadastrado,
+    mostrarVersiculoCompleto
 }

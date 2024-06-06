@@ -80,7 +80,7 @@ function cadastrar() {
             if (resposta.ok) {
                 modalConteudo.innerHTML = `
                         <div class="conteudo_modal">
-                            <p id="paragrafo_modal">Sucessos</p>
+                            <p id="paragrafo_modal">Sucesso!</p>
                             <span id="span_modal">Cadastro realizado com sucesso, seja bem vindo! <br> 
                             Redirecionando para a tela de login em alguns segundos...</span>
                         </div>`;

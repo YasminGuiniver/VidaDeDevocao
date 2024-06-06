@@ -328,7 +328,7 @@ function cadastrarPontos () {
     var id = Number(sessionStorage.ID_USUARIO);
     var pontosTotaisVar = pontos.quantidadePontos.length;
 
-    fetch(`/areaUsuario/cadastroPontuacao`, {
+    fetch(`/areaUsuario/jogo/cadastroPontuacao`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -54,7 +54,35 @@
             </div>
         </div>
     </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content"id="conteudo_inicial">
+          <h2>Seja bem vindo</h2>
+          <p>A paz do Senhor vaso! Muito feliz em ter você aqui. <br>
+            Aqui no vida de devoção você encontra diversas formas de acompanhar seu tempo com o Pai, responda um breve formulário para ter acesso a funcionalidades incrivéi. <br>
+            (o formulário é obrigatório)
+        </p>
+          <button class="button" onclick="habilitarFormulario()">Continuar</button>
+        </div>
+        <div class="modal-content" id="form-modal">
+            <p id="paragrafo_form">Selecione quantas horas por dia você pode se dedicar ao devocional</p>
+            <select id="select_horario">
+                <option value="#" selected>Escolha uma opção</option>
+                <option value="1">1 hora</option>
+                <option value="2">2 horas</option>
+                <option value="3">3 horas ou mais</option>
+            </select>
+            <button class="button" onclick="cadastroRotina()">Continuar</button>
+            <p id="error"></p>
+        </div>
+        <div class="modal-content" id="fim_modal">
+            <p id="fim_modal_p">Sua rotina é a número <span id="span_numero"></span>, onde você tem:</p>
+            <span id="span_modal"></span>
+            <button class="button" onclick="fechar()">Ok!</button>
+        </div>
+      </div>
 </body>
 </html>
 
 <script src="js/dashboardBack.js"></script>
+<script src="js/rotina.js"></script>

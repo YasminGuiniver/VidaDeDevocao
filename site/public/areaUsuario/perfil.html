@@ -30,17 +30,17 @@
         <div class="content">
             <div class="img-profile">
                 <div class="fotinho">
-                    <img src="../imgs/jesus-moça.jpg">
+                    <img id="img_perfil_form">
                 </div>
             </div>
             
             <div class="formulario">
                 <form action="#" method="post">
-                    <input type="text" name="nome" value="Jesus" placeholder="Nome" readonly>
-                    <input type="email" name="email" value="Jesus" placeholder="E-mail" readonly>
-                    <input type="password" name="senha" value="Jesus" placeholder="Senha" readonly>
-                    <input type="tel" name="telefone" value="Jesus" placeholder="Telefone" readonly>
-                    <input type="tel" name="tipoRotina" value="Rotina 1" placeholder="Tipo Rotina" readonly>
+                    <input type="text" name="nome" value="Jesus" placeholder="Nome" readonly id="nomeForm" class="desativado">
+                    <input type="email" name="email" value="Jesus" placeholder="E-mail" readonly id="emailForm" class="desativado">
+                    <input type="password" name="senha" value="Jesus" placeholder="Senha" readonly id="senhaForm" class="desativado">
+                    <input type="tel" name="telefone" value="Jesus" placeholder="Telefone" readonly id="telefoneForm" class="desativado">
+                    <input type="tel" name="tipoRotina" value="Rotina 1" placeholder="Tipo Rotina" readonly id="rotinaForm" class="desativado">
                     <button type="button" id="btnAtualizar">Atualizar</button>
                     <button type="button" id="btnDeletar">Deletar</button>
                 </form>
@@ -52,18 +52,15 @@
                     <h2>Atualizar Informações</h2>
                     <div class="formulario">
                         <form action="#" method="post">
-                            <input type="file">
-                            <input type="text" name="nome" placeholder="Nome">
-                            <input type="email" name="email" placeholder="E-mail">
-                            <input type="password" name="senha" placeholder="Senha">
-                            <input type="tel" name="telefone" placeholder="Telefone">
-                            <select>
-                                <option value="rotinaAtual" selected>Rotina Atual</option>
-                                <option value="1">Rotina 1 -- 1 hora 1 capitulo</option>
-                                <option value="2">Rotina 2 -- 2 horas 2 capitulos</option>
-                                <option value="3">Rotina 3 -- 3 horas ou mais 3 capitulos ou mais</option>
+                            <input type="file" id="nova_file_user">
+                            <input type="text" name="nome" placeholder="Nome" id="nomeModal">
+                            <input type="email" name="email" placeholder="E-mail" id="emailModal">
+                            <input type="text" name="senha" placeholder="Senha" id="senhaModal">
+                            <input type="tel" name="telefone" placeholder="Telefone" id="telefoneModal">
+                            <select id="select_rotinas">
+                            
                             </select>
-                            <button type="button" id="btnAtualizar">Atualizar</button>
+                            <button type="button" id="btnAtualizarModal">Atualizar</button>
                             <button type="button" id="btnCancelar">Cancelar</button>
                         </form>
                     </div>

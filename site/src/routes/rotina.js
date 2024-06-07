@@ -10,10 +10,15 @@ router.get("/verificaRotina/:id", function (req, res) {
 
 router.post("/cadastrarRotina", function(req, res) {
     rotinaController.cadastrarRotinaUsuario(req,res);
-})
+});
 
 router.get("/listarRotina/:id", function(req, res) {
     rotinaController.listarRotinaUsuario(req, res);
+});
+
+
+router.get("/listarUsuarioMesmaRotina/:id", function(req, res) {
+    rotinaController.listarUsuariosComAMesmaRotina(req, res);
 })
 
 module.exports = router;

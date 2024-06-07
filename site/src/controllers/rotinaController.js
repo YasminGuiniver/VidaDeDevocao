@@ -24,8 +24,17 @@ function listarRotinaUsuario(req, res) {
     });
 }
 
+function listarUsuariosComAMesmaRotina(req, res) {
+    var idUsuario = req.params.id;
+
+    rotinaModel.listarUsuariosComAMesmaRotina(idUsuario).then(function(resultado) {
+        res.status(200).json(resultado);
+    })
+}
+
 module.exports = {
     verificaRotina,
     cadastrarRotinaUsuario,
-    listarRotinaUsuario
+    listarRotinaUsuario,
+    listarUsuariosComAMesmaRotina
 }

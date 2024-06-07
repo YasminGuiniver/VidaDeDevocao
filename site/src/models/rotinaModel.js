@@ -32,9 +32,24 @@ function listarRotinaUsuario (fkUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function listarUsuariosComAMesmaRotina(idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():");
+
+    var instrucaoSql = `SELECT u.nomeUsuario AS nome, r.nomeRotina AS rotina FROM tbRotina r
+            JOIN tbRotinaDoUsuario ru ON r.idRotina = ru.fkRotina
+            JOIN tbUsuario u ON ru.fkUsuario = u.idUsuario
+            WHERE r.idRotina IN (
+                SELECT fkRotina FROM tbRotinaDoUsuario WHERE fkUsuario = '${idUsuario}')
+            AND u.idUsuario <> '${idUsuario}';`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     verificaRotina,
     cadastrarRotina,
-    listarRotinaUsuario
+    listarRotinaUsuario,
+    listarUsuariosComAMesmaRotina
 }

@@ -105,3 +105,20 @@ function fecharModal () {
     var modalV = document.getElementById('modalVersiculo');
     modalV.style.display = 'none';
 }
+
+fetch(`/areaUsuario/rotina/listarUsuarioMesmaRotina/${id}`, {
+    method: "GET",
+})
+.then(function (resposta) {
+    resposta.json().then(function(resposta) {
+        resposta.forEach(amigo => {
+            body_table.innerHTML += `<tr> <td>${amigo.nome}</td> </tr>`
+            console.log(amigo.nome);
+        })
+    })
+})
+.catch(function (erro) {
+    console.log(`#ERRO: ${erro}`);
+});
+
+

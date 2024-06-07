@@ -48,43 +48,20 @@
             </div>
             <div class="quadrado" id="quadrado_com_modal_versiculo">
                 <h4>Versiculo</h4>
-                <p id="referencia_versiculo"></p>
+                <p id="referencia_versiculo" onclick="abrirModalVersiculo()"></p>
             </div>
             <div class="retangulo">
-                <h4>Ranking</h4>
+                <h4>Friends de rotina</h4>
                 <div class="table-container">
                     <table>
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                <th>Pontos totais</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Adicione aqui várias linhas para testar o scroll -->
                             <tr>
                                 <td>Yasmin</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>Yasmin Guiniver</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>Ingrid Isis</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>Ingrid</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>Mariana</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>Jhenifer</td>
-                                <td>50</td>
                             </tr>
                         </tbody>
                     </table>
@@ -119,7 +96,7 @@
             <p id="error"></p>
         </div>
         <div class="modal-content" id="fim_modal">
-            <p id="fim_modal_p">Sua rotina é a número <span id="span_numero"></span>, onde você tem:</p>
+            <p id="fim_modal_p">Sua rotina é a <span id="span_numero"></span>, onde você tem:</p>
             <span id="span_modal"></span>
             <button class="button" onclick="fechar()">Ok</button>
         </div>
@@ -127,8 +104,8 @@
 
     <div id="modalVersiculo" class="modal">
         <div class="modal-content" id="conteudo_inicial">
-            <p id="texto_versiculo"></p>
-            <button class="button" id="fechar">Amém</button>
+            <p id="texto_versiculo">AAAAAAAAAA</p>
+            <button class="button" onclick="fecharModal()">Amém</button>
         </div>
     </div>
     

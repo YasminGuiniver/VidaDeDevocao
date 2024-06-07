@@ -38,6 +38,7 @@ function listarVersiculoCompleto (idVersiculo) {
     })
     .then(function (resposta) {
         resposta.json().then((versiculo) => {
+            texto_versiculo.innerHTML = versiculo[0].Referencia;
             console.log(versiculo[0].Referencia);
         });
     })
@@ -94,3 +95,13 @@ function pegarMomentoCadastroBanco () {
 }
 
 pegarMomentoCadastroBanco();
+
+function abrirModalVersiculo () {
+    var modalV = document.getElementById('modalVersiculo');
+    modalV.style.display = 'block';
+}
+
+function fecharModal () {
+    var modalV = document.getElementById('modalVersiculo');
+    modalV.style.display = 'none';
+}

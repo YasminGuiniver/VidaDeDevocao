@@ -42,10 +42,10 @@ function habilitarParteFinal () {
         return resposta.json().then(rotina => {
             console.log("aqui estou, sendo quem sou",rotina[0].idRotina);
     
-            span_numero.innerHTML = rotina[0].idRotina;
+            span_numero.innerHTML = rotina[0].nomeRotina;
     
-            span_modal.innerHTML = `Quantidade de horas: ${rotina[0].qdtHoras}hrs <br>
-            Quantidade de capitulos: ${rotina[0].qdtCapitulos}  <br>
+            span_modal.innerHTML = `Quantidade de horas: ${rotina[0].qtdHoras}hrs <br>
+            Quantidade de capitulos: ${rotina[0].qtdCapitulos}  <br>
             Tempo para oração: ${rotina[0].qtdTempoOracao}mins <br>
             Tempo para louvor: ${rotina[0].qtdTempoOracao}mins`
         });
@@ -114,10 +114,10 @@ function visuzalizarRotina() {
         return resposta.json().then(rotina => {
             console.log("aqui estou, sendo quem sou",rotina[0].idRotina);
     
-            span_numero.innerHTML = rotina[0].idRotina;
+            span_numero.innerHTML = rotina[0].nomeRotina;
     
-            span_modal.innerHTML = `Quantidade de horas: ${rotina[0].qdtHoras}hrs <br>
-            Quantidade de capitulos: ${rotina[0].qdtCapitulos}  <br>
+            span_modal.innerHTML = `Quantidade de horas: ${rotina[0].qtdHoras}hrs <br>
+            Quantidade de capitulos: ${rotina[0].qtdCapitulos}  <br>
             Tempo para oração: ${rotina[0].qtdTempoOracao}mins <br>
             Tempo para louvor: ${rotina[0].qtdTempoOracao}mins`
         });

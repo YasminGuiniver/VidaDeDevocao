@@ -27,9 +27,17 @@ function mostrarVersiculoCompleto(req, res) {
     })
 }
 
+function graficoPontuacao(req, res) {
+    var idUsuario = req.params.id;
+    dashboardModel.graficoPontuacao(idUsuario).then(function (resultado) {
+        res.status(200).json(resultado);
+    })
+}
+
 module.exports = {
     listarVersiculos,
     listarQuantidadePontos,
     momentoUsuarioCadastrado,
-    mostrarVersiculoCompleto
+    mostrarVersiculoCompleto,
+    graficoPontuacao
 }

@@ -17,6 +17,10 @@ router.get("/momentoCadastro/:id", function(req, res) {
 
 router.get("/mostrarVersiculoCompleto/:id", function(req, res) {
     dashboard.mostrarVersiculoCompleto(req, res);
+});
+
+router.get("/graficoDashboard/:id", function(req, res) {
+    dashboard.graficoPontuacao(req, res);
 })
 
 module.exports = router;

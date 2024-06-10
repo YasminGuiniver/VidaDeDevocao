@@ -9,10 +9,6 @@ if (imagemUser) {
     document.getElementById('img_perfil').src = `imgsUsuarios/padraoUser.png`;
 }
 
-function listar() {
-    var idUsuario = sessionStorage.ID_USUARIO;
-}
-
 // Abrir modal de atualizar
 document.getElementById("btnAtualizar").addEventListener("click", function () {
     document.getElementById("modalAtualizar").style.display = "block";
@@ -69,7 +65,6 @@ fetch(`/areaUsuario/perfil/listarPerfilUsuario/${id}`, {
         emailModal.value = resposta[0].emailUsuario;
         senhaModal.value = resposta[0].senhaUsuario;
         telefoneModal.value = formatarTelefone(resposta[0].telefoneUsuario);
-
         console.log(resposta);
     })
 }).catch(function (erro) {

@@ -19,7 +19,21 @@ function listaPerfil(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function atualizarPerfil(nome, email, telefone, senha, idUsuario, rotina, imagem) {
+    var instrucaoSql = `
+    UPDATE tbUsuario SET nomeUsuario = '${nome}', emailUsuario = '${email}', senhaUsuario = '${senha}'
+    , imagemPerfil = '${imagem}', telefoneUsuario = '${telefone}' WHERE idUsuario = '${idUsuario}';
+    `;
+
+    // var instrucaoSql2 = `UPDATE tbRotinaDoUsuario SET fkRotina = '${rotina}'  WHERE fkUsuario = '${idUsuario}';`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    // database.executar(instrucaoSql2);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     listarRotina,
-    listaPerfil
+    listaPerfil,
+    atualizarPerfil
 }

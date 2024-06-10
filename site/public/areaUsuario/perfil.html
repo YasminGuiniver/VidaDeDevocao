@@ -52,7 +52,7 @@
                     <h2>Atualizar Informações</h2>
                     <div class="formulario">
                         <form action="#" method="post">
-                            <input type="file" id="nova_file_user">
+                            <input type="file" id="imagem" accept="image/*">
                             <input type="text" name="nome" placeholder="Nome" id="nomeModal">
                             <input type="email" name="email" placeholder="E-mail" id="emailModal">
                             <input type="text" name="senha" placeholder="Senha" id="senhaModal">
@@ -60,7 +60,7 @@
                             <select id="select_rotinas">
                             
                             </select>
-                            <button type="button" id="btnAtualizarModal">Atualizar</button>
+                            <button type="button" id="btnAtualizarModal" onclick="editar()">Atualizar</button>
                             <button type="button" id="btnCancelar">Cancelar</button>
                         </form>
                     </div>
@@ -73,6 +73,15 @@
                     <h2>Confirmar Exclusão</h2>
                     <p>Tem certeza que deseja excluir?</p>
                     <button class="botao-apagar" type="button" id="btnConfirmarDeletar">Sim, excluir</button>
+                </div>
+            </div>
+
+            <div id="modalErro" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Ops!</h2>
+                    <p>Houve um erro no servidor, tente novamente mais tarde</p>
+                    <button class="botao-apagar" type="button" id="btnConfirmarDeletar">Ok</button>
                 </div>
             </div>
         </div>

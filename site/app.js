@@ -34,6 +34,7 @@ app.use("/areaUsuario/dashboard", dashboardRouter);
 app.use("/areaUsuario/jogo", jogoRouter);
 app.use("/areaUsuario/rotina", rotinaRouter);
 app.use("/areaUsuario/perfil", perfilRouter);
+app.use("/contato", indexRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

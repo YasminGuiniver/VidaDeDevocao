@@ -41,7 +41,69 @@ body {
     flex: 1;
 }
 
+
 .login {
+    width: 40%;
+    background-color: #AED6F1;
+    padding: 10px;
+    height: 579px;
+    border-top-left-radius: 400px;
+    border-bottom-left-radius: 400px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login_texto {
+    margin-top: 80px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 150px;
+}
+
+#logoLogin {
+    width: 500px;
+    margin: 20px 0;
+    margin-left: 150px;
+}
+
+#loginBotao {
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    background-color: #0068AE;
+    color: #FFFFFF;
+    border-color: #0068AE;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    margin-top: 10px;
+    text-transform: uppercase;
+    margin-left: 150px;
+}
+
+#loginBotao:hover {
+    background-color: #3694d3;
+}
+
+#linkVoltar {
+    margin-top: 20px;
+    color: #0068AE;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-decoration: none;
+    margin-left: 150px;
+}
+
+#linkVoltar:hover {
+    text-decoration: underline;
+}
+
+
+/* .login {
     width: 40%; 
     background-color: #AED6F1; 
     padding: 10px;
@@ -49,6 +111,9 @@ body {
     border-top-left-radius: 400px;
     border-bottom-left-radius: 400px;
     margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #login_texto {
@@ -83,6 +148,15 @@ body {
 #loginBotao:hover{
     background-color: #3694d3;
 }
+
+#linkVoltar {
+    margin-top: 20px;
+    color: #0068AE;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-decoration: none;
+    margin-left: 50px;
+} */
 
 #cadastro_texto {
     margin-left: 200px;

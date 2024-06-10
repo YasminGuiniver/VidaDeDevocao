@@ -77,3 +77,75 @@ function formatarTelefone(numero) {
 
     return numero.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
 }
+
+function retirarFormatacao(numeroFormatado) {
+    return numeroFormatado.replace(/\D/g, '');
+}
+
+function atualizar() {
+    var nomeVar = nomeModal.value;
+    var emailVar = emailModal.value;
+    var senhaVar = senhaModal.value;
+    var telefoneVar = retirarFormatacao(telefoneModal.value);
+    var imagemVar = fotoInput.files[0];
+
+    if (imagemVar == "" || imagemVar == undefined) {
+        document.getElementById('fotoInput').files[0] = imagemUser;
+    }
+
+    var nomeImagem = imagemVar.name;
+
+    const formData = new FormData();
+    formData.append('nome', nomeVar);
+    formData.append('email', emailVar);
+    formData.append('senha', senhaVar);
+    formData.append('telefone', telefoneVar);
+    formData.append('imagem', imagemVar);
+    formData.append('id', id);
+
+    fetch(`/areaUsuario/perfil/atualizarPerfil`, {
+        method: "PUT",
+        body: formData
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+            
+            console.log(sessionStorage.IMGEM_USUARIO)
+            if (resposta.ok) {
+                window.location.reload(true);
+                sessionStorage.NOME_USUARIO = nomeVar;
+                sessionStorage.IMAGEM_USUARIO = nomeImagem;
+                sessionStorage.EMAIL_USUARIO = emailVar;
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false;
+}
+
+function desativarConta() {
+    var id = sessionStorage.ID_USUARIO;
+    const formData = new FormData();
+    formData.append('id', id);
+
+    fetch(`/areaUsuario/perfil/desativarConta`, {
+        method: "PUT",
+        body: formData
+    })
+        .then(function (resposta) {
+            if (resposta.ok) {
+                window.location.href = "../login.html";
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false;
+}

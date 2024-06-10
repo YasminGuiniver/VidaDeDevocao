@@ -88,7 +88,7 @@ function cadastrar() {
 
                 setTimeout(() => {
                     window.location = "login.html";
-                }, " 5000");
+                }, " 3000");
 
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";

@@ -59,11 +59,21 @@ function cadastrar() {
             }
             btnFecharModalDentro.onclick = function () {
                 modal.style.display = "none";
+
+                nomeContatoInput.value = "";
+                emailContatoInput.value = "";
+                telefoneInput.value = "";
+                mensagemContatoText.value = "";
             }
     
             window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
+
+                    nomeContatoInput.value = "";
+                    emailContatoInput.value = "";
+                    telefoneInput.value = "";
+                    mensagemContatoText.value = "";
                 }
             }
         })

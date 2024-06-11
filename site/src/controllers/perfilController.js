@@ -28,7 +28,7 @@ function atualizarPerfil(req, res) {
 }
 
 function desativarConta(req, res) {
-    var idUsuario = req.body.id;
+    var idUsuario = req.params.id;
 
     perfilModel.desativarConta(idUsuario).then(function(resultado) {
         res.status(200).json(resultado);

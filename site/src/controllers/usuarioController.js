@@ -61,7 +61,8 @@ function autenticar(req, res) {
                             id: resultadoAutenticar[0].idUsuario,
                             email: resultadoAutenticar[0].emailUsuario,
                             nome: resultadoAutenticar[0].nomeUsuario,
-                            imagem: resultadoAutenticar[0].imagemPerfil
+                            imagem: resultadoAutenticar[0].imagemPerfil,
+                            status: resultadoAutenticar[0].statusContatoUsuario,
                         });
                     }
                     else if (resultadoAutenticar.length == 0) {

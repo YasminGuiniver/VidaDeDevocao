@@ -17,7 +17,7 @@ router.put("/atualizarPerfil", upload.single('imagem'), function(req, res) {
     perfilController.atualizarPerfil(req, res);
 });
 
-router.put("/desativarConta", function(req, res) {
+router.put("/desativarConta/:id", function(req, res) {
     perfilController.desativarConta(req, res);
 });
 

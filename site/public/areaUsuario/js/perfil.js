@@ -128,13 +128,8 @@ function atualizar() {
 }
 
 function desativarConta() {
-    var id = sessionStorage.ID_USUARIO;
-    const formData = new FormData();
-    formData.append('id', id);
-
-    fetch(`/areaUsuario/perfil/desativarConta`, {
+    fetch(`/areaUsuario/perfil/desativarConta/${id}`, {
         method: "PUT",
-        body: formData
     })
         .then(function (resposta) {
             if (resposta.ok) {

@@ -45,14 +45,29 @@ function entrar() {
             resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
-                sessionStorage.IMAGEM_USUARIO = json.imagem;
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
+                if(json.status == 0) {
+                    texto_modal_login.innerHTML = "Essa conta não existe"
+                    modal.style.display = "block";
 
-                setTimeout(function () {
-                    window.location = "./areaUsuario/dashboard.html";
-                }, 1000);
+                    btnFecharModalDentro.onclick = function () {
+                        modal.style.display = "none";
+                    }
+            
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                } else {
+                    sessionStorage.IMAGEM_USUARIO = json.imagem;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+    
+                    setTimeout(function () {
+                        window.location = "./areaUsuario/dashboard.html";
+                    }, 1000);
+                }
 
             });
 

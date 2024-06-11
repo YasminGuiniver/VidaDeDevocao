@@ -30,7 +30,7 @@ function atualizarPerfil (nome, email, senha, imagem, telefone, idUsuario) {
 
 function desativarConta (idUsuario) {
     var instrucaoSql = `
-    UPDATE tbUsuario SET statusContatoUsuario = 0 WHERE idUsuario = '${idUsuario}'; `;
+    UPDATE tbUsuario SET statusContatoUsuario = 0  WHERE idUsuario = '${idUsuario}';`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
